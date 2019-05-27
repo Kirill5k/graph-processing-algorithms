@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group 'kirill'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 11.0
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.guava:guava:27.0.1-jre'
+
+    testCompile 'org.assertj:assertj-core:3.12.2'
+    testCompile 'org.junit.jupiter:junit-jupiter:5.4.1'
+}
+
+test {
+    useJUnitPlatform {
+        includeEngines 'junit-jupiter'
+        excludeEngines 'junit-vintage'
+    }
+}
