@@ -50,4 +50,14 @@ public class DirectedGraph implements Graph {
     public Collection<Integer> adjacentTo(int vertex) {
         return adjacencyLists[vertex];
     }
+
+    public DirectedGraph reverse() {
+        DirectedGraph reversedGraph = new DirectedGraph(vertices);
+        for (int vertex = 0; vertex < vertices; vertex++) {
+            for (int adjacentVertex : adjacentTo(vertex)) {
+                reversedGraph.addEdge(adjacentVertex, vertex);
+            }
+        }
+        return reversedGraph;
+    }
 }
