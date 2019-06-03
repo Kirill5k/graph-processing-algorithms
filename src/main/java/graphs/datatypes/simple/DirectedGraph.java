@@ -1,4 +1,7 @@
-package graphs.datatypes;
+package graphs.datatypes.simple;
+
+import graphs.datatypes.Edge;
+import graphs.datatypes.Graph;
 
 import java.util.*;
 
@@ -26,19 +29,17 @@ public class DirectedGraph implements Graph {
         return edges;
     }
 
-    @Override
-    public void addEdge(int vertexFrom, int vertexTo) {
-        if (vertexFrom == vertexTo || hasEdge(vertexFrom, vertexTo)) {
+    public void add(Edge edge) {
+        if (edge.isSelfloop() || has(edge)) {
             throw new IllegalArgumentException("parallel edges and self-loops are not allowed");
         }
 
-        adjacencyLists[vertexFrom].add(vertexTo);
+        adjacencyLists[edge.from()].add(edge.to());
         edges++;
     }
 
-    @Override
-    public boolean hasEdge(int vertexFrom, int vertexTo) {
-        return adjacencyLists[vertexFrom].contains(vertexTo);
+    public boolean has(Edge edge) {
+        return adjacencyLists[edge.from()].contains(edge.to());
     }
 
     /**
@@ -55,7 +56,7 @@ public class DirectedGraph implements Graph {
         DirectedGraph reversedGraph = new DirectedGraph(vertices);
         for (int vertex = 0; vertex < vertices; vertex++) {
             for (int adjacentVertex : adjacentTo(vertex)) {
-                reversedGraph.addEdge(adjacentVertex, vertex);
+                reversedGraph.add(new SimpleEdge(adjacentVertex, vertex));
             }
         }
         return reversedGraph;

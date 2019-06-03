@@ -20,4 +20,6 @@ public abstract class DegreeMeasure {
     public abstract List<Integer> sinks();
 
     public abstract boolean isMap();
+
+    public abstract boolean hasEulerianCycle();
 }

@@ -2,10 +2,8 @@ package graphs.paths;
 
 import graphs.datatypes.Graph;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
-import java.util.List;
 
 import static java.util.Collections.emptyList;
 

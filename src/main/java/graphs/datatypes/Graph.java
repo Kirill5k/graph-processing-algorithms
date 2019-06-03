@@ -8,9 +8,9 @@ public interface Graph {
 
     int edges();
 
-    void addEdge(int vertexFrom, int vertexTo);
+    void add(Edge edge);
 
-    boolean hasEdge(int vertexFrom, int vertexTo);
+    boolean has(Edge edge);
 
     Collection<Integer> adjacentTo(int vertex);
 

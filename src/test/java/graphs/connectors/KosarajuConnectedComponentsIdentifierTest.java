@@ -1,6 +1,6 @@
 package graphs.connectors;
 
-import graphs.datatypes.DirectedGraph;
+import graphs.datatypes.simple.DirectedGraph;
 import graphs.datatypes.DirectedGraphBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

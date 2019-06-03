@@ -1,13 +1,11 @@
 package graphs.connectors;
 
 import graphs.datatypes.Graph;
-import graphs.datatypes.UndirectedGraphBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static graphs.datatypes.UndirectedGraphBuilder.mediumUndirectedGraph;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class DepthFirstSearchConnectorTest {
 

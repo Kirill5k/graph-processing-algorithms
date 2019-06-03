@@ -1,6 +1,6 @@
 package graphs.degrees;
 
-import graphs.datatypes.DirectedGraph;
+import graphs.datatypes.simple.DirectedGraph;
 
 import java.util.Arrays;
 import java.util.List;
@@ -63,6 +63,13 @@ public class DigraphDegreeMeasure extends DegreeMeasure {
 
     @Override
     public boolean isMap() {
-        return Arrays.stream(outdegrees).allMatch(degree -> degree == 1);
+        return Arrays.stream(outdegrees)
+                .allMatch(degree -> degree == 1);
+    }
+
+    @Override
+    public boolean hasEulerianCycle() {
+        return IntStream.range(0, graph.vertices())
+                .allMatch(vertex -> indegrees[vertex] == outdegrees[vertex]);
     }
 }

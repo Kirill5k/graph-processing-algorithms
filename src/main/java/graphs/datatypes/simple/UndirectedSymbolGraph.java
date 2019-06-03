@@ -1,4 +1,8 @@
-package graphs.datatypes;
+package graphs.datatypes.simple;
+
+import graphs.datatypes.Edge;
+import graphs.datatypes.Graph;
+import graphs.datatypes.SymbolGraph;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -35,7 +39,8 @@ public class UndirectedSymbolGraph implements SymbolGraph {
 
     @Override
     public void addEdge(String keyFrom, String keyTo) {
-        graph.addEdge(symbolsMap.get(keyFrom), symbolsMap.get(keyTo));
+        var edge = new SimpleEdge(symbolsMap.get(keyFrom), symbolsMap.get(keyTo));
+        graph.add(edge);
     }
 
     @Override
@@ -53,14 +58,12 @@ public class UndirectedSymbolGraph implements SymbolGraph {
         return graph.edges();
     }
 
-    @Override
-    public void addEdge(int vertexFrom, int vertexTo) {
-        graph.addEdge(vertexFrom, vertexTo);
+    public void add(Edge edge) {
+        graph.add(edge);
     }
 
-    @Override
-    public boolean hasEdge(int vertexFrom, int vertexTo) {
-        return graph.hasEdge(vertexFrom, vertexTo);
+    public boolean has(Edge edge) {
+        return graph.has(edge);
     }
 
     @Override

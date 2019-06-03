@@ -1,4 +1,7 @@
-package graphs.datatypes;
+package graphs.datatypes.simple;
+
+import graphs.datatypes.Edge;
+import graphs.datatypes.Graph;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -29,19 +32,19 @@ public class UndirectedGraph implements Graph {
     }
 
     @Override
-    public void addEdge(int vertexFrom, int vertexTo) {
-        if (vertexFrom == vertexTo || hasEdge(vertexFrom, vertexTo)) {
+    public void add(Edge edge) {
+        if (edge.isSelfloop() || has(edge)) {
             throw new IllegalArgumentException("parallel edges and self-loops are not allowed");
         }
 
-        adjacencyList[vertexFrom].add(vertexTo);
-        adjacencyList[vertexTo].add(vertexFrom);
+        adjacencyList[edge.from()].add(edge.to());
+        adjacencyList[edge.to()].add(edge.from());
         edges++;
     }
 
     @Override
-    public boolean hasEdge(int vertexFrom, int vertexTo) {
-        return adjacencyList[vertexFrom].contains(vertexTo) || adjacencyList[vertexTo].contains(vertexFrom);
+    public boolean has(Edge edge) {
+        return adjacencyList[edge.from()].contains(edge.to()) || adjacencyList[edge.to()].contains(edge.from());
     }
 
     @Override

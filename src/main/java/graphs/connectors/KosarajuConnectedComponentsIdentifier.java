@@ -1,6 +1,6 @@
 package graphs.connectors;
 
-import graphs.datatypes.DirectedGraph;
+import graphs.datatypes.simple.DirectedGraph;
 import graphs.topologies.DepthFirstOrderFinder;
 
 public class KosarajuConnectedComponentsIdentifier extends ConnectedComponentsIdentifier {
