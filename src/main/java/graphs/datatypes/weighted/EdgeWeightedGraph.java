@@ -1,4 +1,4 @@
-package graphs.datatypes.simple;
+package graphs.datatypes.weighted;
 
 import graphs.datatypes.Edge;
 import graphs.datatypes.Graph;
@@ -7,17 +7,17 @@ import java.util.*;
 
 import static java.util.stream.Collectors.toList;
 
-public class UndirectedGraph implements Graph {
-
-    private final Set<Integer>[] adjacencyLists;
-    private final List<Edge> edges;
+public class EdgeWeightedGraph implements Graph {
     private final int vertices;
-    public UndirectedGraph(int vertices) {
-        this.edges = new ArrayList<>();
+    private final List<Edge> edges;
+    private final Set<Integer>[] adjacencySets;
+
+    public EdgeWeightedGraph(int vertices) {
         this.vertices = vertices;
-        adjacencyLists = (Set<Integer>[]) new Set[vertices];
+        this.edges = new ArrayList<>();
+        this.adjacencySets = (Set<Integer>[]) new Set[vertices];
         for (int vertex = 0; vertex < vertices; vertex++) {
-            adjacencyLists[vertex] = new HashSet<>();
+            adjacencySets[vertex] = new HashSet<>();
         }
     }
 
@@ -33,29 +33,32 @@ public class UndirectedGraph implements Graph {
 
     @Override
     public void add(Edge edge) {
+        if (!(edge instanceof WeightedEdge)) {
+            throw new IllegalArgumentException("must be weighted edge");
+        }
         if (edge.isSelfloop() || has(edge)) {
             throw new IllegalArgumentException("parallel edges and self-loops are not allowed");
         }
 
-        adjacencyLists[edge.from()].add(edge.to());
-        adjacencyLists[edge.to()].add(edge.from());
+        adjacencySets[edge.from()].add(edge.to());
+        adjacencySets[edge.to()].add(edge.from());
         edges.add(edge);
     }
 
     @Override
     public boolean has(Edge edge) {
-        return adjacencyLists[edge.from()].contains(edge.to()) || adjacencyLists[edge.to()].contains(edge.from());
+        return adjacencySets[edge.from()].contains(edge.to()) || adjacencySets[edge.to()].contains(edge.from());
     }
 
     @Override
     public Collection<Integer> adjacentTo(int vertex) {
-        return adjacencyLists[vertex];
+        return adjacencySets[vertex];
     }
 
     @Override
     public Collection<Edge> adjacentEdges(int vertex) {
         return edges.stream()
-                .filter(edge -> edge.from() == vertex || edge.to() == vertex)
+                .filter(edge -> edge.to() == vertex || edge.from() == vertex)
                 .collect(toList());
     }
 

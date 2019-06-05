@@ -14,6 +14,10 @@ public interface Graph {
 
     Collection<Integer> adjacentTo(int vertex);
 
+    Collection<Edge> adjacentEdges(int vertex);
+
+    Collection<Edge> allEdges();
+
     default int degree(int vertex) {
         return adjacentTo(vertex).size();
     }

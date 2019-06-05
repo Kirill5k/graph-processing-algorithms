@@ -3,17 +3,21 @@ package graphs.datatypes.simple;
 import graphs.datatypes.Edge;
 import graphs.datatypes.Graph;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 public class DirectedGraph implements Graph {
     private final int vertices;
-    private int edges;
-    private final List<Integer>[] adjacencyLists;
+    private List<Edge> edges;
+    private final List<Edge>[] adjacencyLists;
 
     public DirectedGraph(int vertices) {
         this.vertices = vertices;
-        this.edges = 0;
-        this.adjacencyLists = (List<Integer>[]) new List[vertices];
+        this.edges = new ArrayList<>();
+        this.adjacencyLists = (List<Edge>[]) new List[vertices];
         for (int i = 0; i < vertices; i++) {
             adjacencyLists[i] = new ArrayList<>();
         }
@@ -26,7 +30,7 @@ public class DirectedGraph implements Graph {
 
     @Override
     public int edges() {
-        return edges;
+        return edges.size();
     }
 
     public void add(Edge edge) {
@@ -34,12 +38,12 @@ public class DirectedGraph implements Graph {
             throw new IllegalArgumentException("parallel edges and self-loops are not allowed");
         }
 
-        adjacencyLists[edge.from()].add(edge.to());
-        edges++;
+        adjacencyLists[edge.from()].add(edge);
+        edges.add(edge);
     }
 
     public boolean has(Edge edge) {
-        return adjacencyLists[edge.from()].contains(edge.to());
+        return adjacencyLists[edge.from()].contains(edge);
     }
 
     /**
@@ -49,7 +53,19 @@ public class DirectedGraph implements Graph {
      */
     @Override
     public Collection<Integer> adjacentTo(int vertex) {
+        return adjacencyLists[vertex].stream()
+                .map(Edge::to)
+                .collect(toList());
+    }
+
+    @Override
+    public Collection<Edge> adjacentEdges(int vertex) {
         return adjacencyLists[vertex];
+    }
+
+    @Override
+    public Collection<Edge> allEdges() {
+        return edges;
     }
 
     public DirectedGraph reverse() {

@@ -46,6 +46,27 @@ class UndirectedGraphTest {
     }
 
     @Test
+    public void adjacentEdges() {
+        graph.add(new SimpleEdge(0, 5));
+        graph.add(new SimpleEdge(1, 5));
+        graph.add(new SimpleEdge(2, 5));
+        graph.add(new SimpleEdge(3, 5));
+
+        assertThat(graph.adjacentEdges(5)).containsExactlyInAnyOrder(new SimpleEdge(0, 5), new SimpleEdge(1, 5), new SimpleEdge(2, 5), new SimpleEdge(3, 5));
+        assertThat(graph.adjacentEdges(0)).containsExactly(new SimpleEdge(0, 5));
+    }
+
+    @Test
+    public void allEdges() {
+        graph.add(new SimpleEdge(0, 5));
+        graph.add(new SimpleEdge(1, 5));
+        graph.add(new SimpleEdge(2, 5));
+        graph.add(new SimpleEdge(3, 5));
+
+        assertThat(graph.allEdges()).containsExactlyInAnyOrder(new SimpleEdge(0, 5), new SimpleEdge(1, 5), new SimpleEdge(2, 5), new SimpleEdge(3, 5));
+    }
+
+    @Test
     public void degree() {
         graph.add(new SimpleEdge(0, 5));
         graph.add(new SimpleEdge(1, 5));

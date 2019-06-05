@@ -1,18 +1,13 @@
 package graphs.datatypes.weighted;
 
-public class WeightedEdge implements Comparable<WeightedEdge> {
-    private final int from;
-    private final int to;
+import graphs.datatypes.Edge;
+
+public class WeightedEdge extends Edge implements Comparable<WeightedEdge> {
     private final double weight;
 
     public WeightedEdge(int from, int to, double weight) {
-        this.from = from;
-        this.to = to;
+        super(from, to);
         this.weight = weight;
-    }
-
-    public int either() {
-        return Math.random() > 0.5 ? from : to;
     }
 
     public double weight() {

@@ -70,4 +70,14 @@ public class UndirectedSymbolGraph implements SymbolGraph {
     public Collection<Integer> adjacentTo(int vertex) {
         return graph.adjacentTo(vertex);
     }
+
+    @Override
+    public Collection<Edge> adjacentEdges(int vertex) {
+        return graph.adjacentEdges(vertex);
+    }
+
+    @Override
+    public Collection<Edge> allEdges() {
+        return graph.allEdges();
+    }
 }
