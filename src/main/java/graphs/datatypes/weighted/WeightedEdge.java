@@ -18,4 +18,9 @@ public class WeightedEdge extends Edge implements Comparable<WeightedEdge> {
     public int compareTo(WeightedEdge otherEdge) {
         return Double.compare(weight, otherEdge.weight);
     }
+
+    @Override
+    public String toString() {
+        return String.format("%d-%d %.2f", from, to, weight);
+    }
 }

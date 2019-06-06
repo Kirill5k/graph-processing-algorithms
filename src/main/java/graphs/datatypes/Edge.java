@@ -23,6 +23,16 @@ public abstract class Edge {
         return from;
     }
 
+    public int other(int vertex) {
+        if (from == vertex) {
+            return to;
+        } else if (to == vertex) {
+            return from;
+        } else {
+            throw new IllegalArgumentException("irrelevant vertex");
+        }
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
