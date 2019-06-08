@@ -1,5 +1,6 @@
 package graphs.topologies;
 
+import graphs.datatypes.Edge;
 import graphs.datatypes.Graph;
 
 import java.util.Collection;
@@ -13,7 +14,7 @@ public class DepthFirstOrderFinder extends OrderFinder {
     private Queue<Integer> postOrder;
     private Stack<Integer> reversePostOrder;
 
-    public DepthFirstOrderFinder(Graph graph) {
+    public DepthFirstOrderFinder(Graph<Edge> graph) {
         super(graph);
         marked = new boolean[graph.vertices()];
         preOrder = new LinkedList<>();

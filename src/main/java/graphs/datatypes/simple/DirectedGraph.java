@@ -9,7 +9,7 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 
-public class DirectedGraph implements Graph {
+public class DirectedGraph implements Graph<Edge> {
     private final int vertices;
     private List<Edge> edges;
     private final List<Edge>[] adjacencyLists;

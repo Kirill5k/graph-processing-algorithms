@@ -1,6 +1,5 @@
 package graphs.trees;
 
-import graphs.datatypes.Edge;
 import graphs.datatypes.weighted.EdgeWeightedGraph;
 import graphs.datatypes.weighted.WeightedEdge;
 
@@ -33,13 +32,12 @@ public class EagerPrimMinimumSpanningTreeFinder extends MinimumSpanningTreeFinde
 
     private void visit(int vertex) {
         marked[vertex] = true;
-        for (Edge edge: graph.adjacentEdges(vertex)) {
-            WeightedEdge weightedEdge = (WeightedEdge) edge;
-            int adjacentVertex = weightedEdge.other(vertex);
-            if (!marked[adjacentVertex] && weightedEdge.weight() < distTo[adjacentVertex]) {
-                edgeTo[adjacentVertex] = weightedEdge;
-                distTo[adjacentVertex] = weightedEdge.weight();
-                edgeQueue.put(adjacentVertex, weightedEdge.weight());
+        for (WeightedEdge edge: graph.adjacentEdges(vertex)) {
+            int adjacentVertex = edge.other(vertex);
+            if (!marked[adjacentVertex] && edge.weight() < distTo[adjacentVertex]) {
+                edgeTo[adjacentVertex] = edge;
+                distTo[adjacentVertex] = edge.weight();
+                edgeQueue.put(adjacentVertex, edge.weight());
             }
         }
     }

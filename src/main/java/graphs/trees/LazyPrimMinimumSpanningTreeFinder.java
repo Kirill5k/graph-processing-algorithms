@@ -41,9 +41,9 @@ public class LazyPrimMinimumSpanningTreeFinder extends MinimumSpanningTreeFinder
 
     private void visit(int vertex) {
         marked[vertex] = true;
-        for (Edge edge: graph.adjacentEdges(vertex)) {
+        for (WeightedEdge edge: graph.adjacentEdges(vertex)) {
             if (!marked[edge.other(vertex)]) {
-                crossingEdges.add((WeightedEdge) edge);
+                crossingEdges.add(edge);
             }
         }
     }

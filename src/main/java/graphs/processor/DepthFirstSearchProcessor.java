@@ -1,12 +1,13 @@
 package graphs.processor;
 
+import graphs.datatypes.Edge;
 import graphs.datatypes.Graph;
 
 public class DepthFirstSearchProcessor extends GraphProcessor {
     private boolean[] marked;
     private int count;
 
-    public DepthFirstSearchProcessor(Graph graph, int source) {
+    public DepthFirstSearchProcessor(Graph<Edge> graph, int source) {
         super(graph, source);
         marked = new boolean[graph.vertices()];
         depthFirstSearch(source);

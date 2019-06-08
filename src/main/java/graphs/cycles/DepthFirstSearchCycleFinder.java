@@ -1,5 +1,6 @@
 package graphs.cycles;
 
+import graphs.datatypes.Edge;
 import graphs.datatypes.Graph;
 
 import java.util.Collection;
@@ -11,7 +12,7 @@ public class DepthFirstSearchCycleFinder extends CycleFinder {
     private Stack<Integer> cycle;
     private boolean[] onStack;
 
-    protected DepthFirstSearchCycleFinder(Graph graph) {
+    protected DepthFirstSearchCycleFinder(Graph<Edge> graph) {
         super(graph);
         onStack = new boolean[graph.vertices()];
         edgeTo = new int[graph.vertices()];

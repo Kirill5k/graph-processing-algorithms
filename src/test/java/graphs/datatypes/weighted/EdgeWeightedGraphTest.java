@@ -1,7 +1,6 @@
 package graphs.datatypes.weighted;
 
 import graphs.datatypes.Graph;
-import graphs.datatypes.simple.SimpleEdge;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -32,11 +31,6 @@ class EdgeWeightedGraphTest {
 
         assertThrows(IllegalArgumentException.class, () -> graph.add(new WeightedEdge(5, 0, 1)));
         assertThrows(IllegalArgumentException.class, () -> graph.add(new WeightedEdge(0, 0, 1)));
-    }
-
-    @Test
-    public void addEdgeNotWeightedEdge() {
-        assertThrows(IllegalArgumentException.class, () -> graph.add(new SimpleEdge(5, 0)));
     }
 
     @Test

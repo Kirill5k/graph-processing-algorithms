@@ -1,5 +1,6 @@
 package graphs.paths;
 
+import graphs.datatypes.Edge;
 import graphs.datatypes.Graph;
 
 import java.util.Collection;
@@ -11,7 +12,7 @@ public class BreadthFirstSearchPathFinder extends PathFinder {
     private boolean[] marked;
     private int[] edgeTo;
 
-    public BreadthFirstSearchPathFinder(Graph graph, int source) {
+    public BreadthFirstSearchPathFinder(Graph<Edge> graph, int source) {
         super(graph, source);
         marked = new boolean[graph.vertices()];
         edgeTo = new int[graph.vertices()];

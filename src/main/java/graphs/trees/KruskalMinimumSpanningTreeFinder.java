@@ -5,7 +5,6 @@ import graphs.datatypes.weighted.WeightedEdge;
 
 import java.util.Collection;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.PriorityQueue;
 import java.util.stream.IntStream;
 
@@ -19,7 +18,7 @@ public class KruskalMinimumSpanningTreeFinder extends MinimumSpanningTreeFinder 
         network = new int[graph.vertices()];
         IntStream.range(0, graph.vertices()).forEach(vertex -> network[vertex] = vertex);
 
-        priorityQueue = new PriorityQueue<>((List<WeightedEdge>)(List<?>)graph.allEdges());
+        priorityQueue = new PriorityQueue<>(graph.allEdges());
 
         while (!priorityQueue.isEmpty() && minimumSpanningTree.size() < graph.vertices() - 1) {
             WeightedEdge edge = priorityQueue.poll();

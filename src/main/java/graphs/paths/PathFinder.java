@@ -1,14 +1,15 @@
 package graphs.paths;
 
+import graphs.datatypes.Edge;
 import graphs.datatypes.Graph;
 
 import java.util.Collection;
 
 public abstract class PathFinder {
-    protected Graph graph;
+    protected Graph<Edge> graph;
     protected int source;
 
-    public PathFinder(Graph graph, int source) {
+    public PathFinder(Graph<Edge> graph, int source) {
         this.graph = graph;
         this.source = source;
     }

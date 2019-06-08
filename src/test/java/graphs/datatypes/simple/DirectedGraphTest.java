@@ -44,7 +44,7 @@ class DirectedGraphTest {
         graph.add(new SimpleEdge(3, 5));
 
         assertThat(graph.adjacentTo(5)).isEmpty();
-        assertThat(graph.adjacentTo(0)).containsExactly(5, 4);
+        assertThat(graph.adjacentTo(0)).containsExactlyInAnyOrder(5, 4);
     }
 
     @Test

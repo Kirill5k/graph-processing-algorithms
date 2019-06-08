@@ -1,12 +1,13 @@
 package graphs.connectors;
 
+import graphs.datatypes.Edge;
 import graphs.datatypes.Graph;
 
 public class DepthFirstSearchConnector extends Connector {
     private final boolean[] marked;
     private final int[] ids;
 
-    public DepthFirstSearchConnector(Graph graph) {
+    public DepthFirstSearchConnector(Graph<Edge> graph) {
         super(graph);
         marked = new boolean[graph.vertices()];
         ids = new int[graph.vertices()];

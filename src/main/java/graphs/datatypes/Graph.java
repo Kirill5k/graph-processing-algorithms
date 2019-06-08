@@ -3,20 +3,20 @@ package graphs.datatypes;
 import java.util.Collection;
 import java.util.stream.IntStream;
 
-public interface Graph {
+public interface Graph<T extends Edge> {
     int vertices();
 
     int edges();
 
-    void add(Edge edge);
+    void add(T edge);
 
-    boolean has(Edge edge);
+    boolean has(T edge);
 
     Collection<Integer> adjacentTo(int vertex);
 
-    Collection<Edge> adjacentEdges(int vertex);
+    Collection<T> adjacentEdges(int vertex);
 
-    Collection<Edge> allEdges();
+    Collection<T> allEdges();
 
     default int degree(int vertex) {
         return adjacentTo(vertex).size();

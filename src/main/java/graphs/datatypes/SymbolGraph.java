@@ -2,7 +2,7 @@ package graphs.datatypes;
 
 import java.util.Collection;
 
-public interface SymbolGraph extends Graph {
+public interface SymbolGraph extends Graph<Edge> {
     boolean contains(String key);
     
     int index(String key);

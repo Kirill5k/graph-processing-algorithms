@@ -1,9 +1,10 @@
 package graphs.connectors;
 
+import graphs.datatypes.Edge;
 import graphs.datatypes.Graph;
 
 public abstract class Connector {
-    protected final Graph graph;
+    protected final Graph<Edge> graph;
     protected int count;
 
     public Connector(Graph graph) {

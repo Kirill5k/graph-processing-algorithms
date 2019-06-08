@@ -1,15 +1,14 @@
 package graphs.datatypes.weighted;
 
-import graphs.datatypes.Edge;
 import graphs.datatypes.Graph;
 
 import java.util.*;
 
 import static java.util.stream.Collectors.toList;
 
-public class EdgeWeightedGraph implements Graph {
+public class EdgeWeightedGraph implements Graph<WeightedEdge> {
     private final int vertices;
-    private final List<Edge> edges;
+    private final List<WeightedEdge> edges;
     private final Set<Integer>[] adjacencySets;
 
     public EdgeWeightedGraph(int vertices) {
@@ -32,10 +31,7 @@ public class EdgeWeightedGraph implements Graph {
     }
 
     @Override
-    public void add(Edge edge) {
-        if (!(edge instanceof WeightedEdge)) {
-            throw new IllegalArgumentException("must be weighted edge");
-        }
+    public void add(WeightedEdge edge) {
         if (edge.isSelfloop() || has(edge)) {
             throw new IllegalArgumentException("parallel edges and self-loops are not allowed");
         }
@@ -46,7 +42,7 @@ public class EdgeWeightedGraph implements Graph {
     }
 
     @Override
-    public boolean has(Edge edge) {
+    public boolean has(WeightedEdge edge) {
         return adjacencySets[edge.from()].contains(edge.to()) || adjacencySets[edge.to()].contains(edge.from());
     }
 
@@ -56,14 +52,14 @@ public class EdgeWeightedGraph implements Graph {
     }
 
     @Override
-    public Collection<Edge> adjacentEdges(int vertex) {
+    public Collection<WeightedEdge> adjacentEdges(int vertex) {
         return edges.stream()
                 .filter(edge -> edge.to() == vertex || edge.from() == vertex)
                 .collect(toList());
     }
 
     @Override
-    public Collection<Edge> allEdges() {
+    public Collection<WeightedEdge> allEdges() {
         return edges;
     }
 }

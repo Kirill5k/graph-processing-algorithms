@@ -1,13 +1,14 @@
 package graphs.topologies;
 
+import graphs.datatypes.Edge;
 import graphs.datatypes.Graph;
 
 import java.util.Collection;
 
 public abstract class OrderFinder {
-    protected final Graph graph;
+    protected final Graph<Edge> graph;
 
-    protected OrderFinder(Graph graph) {
+    protected OrderFinder(Graph<Edge> graph) {
         this.graph = graph;
     }
 
