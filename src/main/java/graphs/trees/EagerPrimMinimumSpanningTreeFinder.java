@@ -27,13 +27,13 @@ public class EagerPrimMinimumSpanningTreeFinder extends MinimumSpanningTreeFinde
         distTo[STARTING_VERTEX] = 0;
         edgeQueue.put(STARTING_VERTEX, STARTING_WEIGHT);
         while (!edgeQueue.isEmpty()) {
-            visit(getAndDeleteMinVertexFromQueue());
+            visit(removeMinVertexFromQueue());
         }
     }
 
     private void visit(int vertex) {
         marked[vertex] = true;
-        for (Edge edge : graph.adjacentEdges(vertex)) {
+        for (Edge edge: graph.adjacentEdges(vertex)) {
             WeightedEdge weightedEdge = (WeightedEdge) edge;
             int adjacentVertex = weightedEdge.other(vertex);
             if (!marked[adjacentVertex] && weightedEdge.weight() < distTo[adjacentVertex]) {
@@ -44,7 +44,7 @@ public class EagerPrimMinimumSpanningTreeFinder extends MinimumSpanningTreeFinde
         }
     }
 
-    private Integer getAndDeleteMinVertexFromQueue() {
+    private Integer removeMinVertexFromQueue() {
         int min = edgeQueue.entrySet().stream()
                 .min(Comparator.comparing(Map.Entry::getValue))
                 .map(Map.Entry::getKey)
