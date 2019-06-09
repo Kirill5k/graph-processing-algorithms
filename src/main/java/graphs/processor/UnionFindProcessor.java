@@ -1,7 +1,6 @@
 package graphs.processor;
 
-import graphs.datatypes.Edge;
-import graphs.datatypes.Graph;
+import graphs.datatypes.graphs.Graph;
 
 public class UnionFindProcessor extends GraphProcessor {
     private int[] ids;

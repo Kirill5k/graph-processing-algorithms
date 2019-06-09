@@ -1,7 +1,7 @@
 package graphs.connectors;
 
-import graphs.datatypes.Edge;
-import graphs.datatypes.Graph;
+import graphs.datatypes.graphs.Edge;
+import graphs.datatypes.graphs.Graph;
 
 public abstract class Connector {
     protected final Graph<Edge> graph;

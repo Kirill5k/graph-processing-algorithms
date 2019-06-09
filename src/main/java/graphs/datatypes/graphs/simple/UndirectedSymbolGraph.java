@@ -1,8 +1,8 @@
-package graphs.datatypes.simple;
+package graphs.datatypes.graphs.simple;
 
-import graphs.datatypes.Edge;
-import graphs.datatypes.Graph;
-import graphs.datatypes.SymbolGraph;
+import graphs.datatypes.graphs.Edge;
+import graphs.datatypes.graphs.Graph;
+import graphs.datatypes.graphs.SymbolGraph;
 
 import java.util.Collection;
 import java.util.HashMap;

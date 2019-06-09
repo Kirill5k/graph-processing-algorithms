@@ -1,9 +1,9 @@
-package graphs.datatypes.weighted;
+package graphs.datatypes.graphs.weighted;
 
+import graphs.datatypes.graphs.weight.WeightedEdge;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class WeightedEdgeTest {
 

@@ -1,7 +1,8 @@
 package graphs.trees;
 
-import graphs.datatypes.weighted.EdgeWeightedGraph;
-import graphs.datatypes.weighted.WeightedEdge;
+import graphs.datatypes.graphs.weight.EdgeWeightedGraph;
+import graphs.datatypes.graphs.weight.WeightedEdge;
+import graphs.datatypes.queues.IndexedPriorityQueue;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -14,7 +15,7 @@ public class EagerPrimMinimumSpanningTreeFinder extends MinimumSpanningTreeFinde
     private final WeightedEdge[] edgeTo;
     private final double[] distTo;
     private final boolean[] marked;
-    private final Map<Integer, Double> edgeQueue = new HashMap<>();
+    private final IndexedPriorityQueue<Integer, Double> edgeQueue = new IndexedPriorityQueue<>();
 
     protected EagerPrimMinimumSpanningTreeFinder(EdgeWeightedGraph graph) {
         super(graph);
@@ -26,7 +27,7 @@ public class EagerPrimMinimumSpanningTreeFinder extends MinimumSpanningTreeFinde
         distTo[STARTING_VERTEX] = 0;
         edgeQueue.put(STARTING_VERTEX, STARTING_WEIGHT);
         while (!edgeQueue.isEmpty()) {
-            visit(removeMinVertexFromQueue());
+            visit(edgeQueue.poll());
         }
     }
 
@@ -40,15 +41,6 @@ public class EagerPrimMinimumSpanningTreeFinder extends MinimumSpanningTreeFinde
                 edgeQueue.put(adjacentVertex, edge.weight());
             }
         }
-    }
-
-    private Integer removeMinVertexFromQueue() {
-        int min = edgeQueue.entrySet().stream()
-                .min(Comparator.comparing(Map.Entry::getValue))
-                .map(Map.Entry::getKey)
-                .orElseThrow(() -> new RuntimeException("unable to find vertex"));
-        edgeQueue.remove(min);
-        return min;
     }
 
     @Override

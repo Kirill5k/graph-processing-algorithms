@@ -1,6 +1,6 @@
 package graphs.degrees;
 
-import graphs.datatypes.simple.DirectedGraph;
+import graphs.datatypes.graphs.simple.DirectedGraph;
 
 import java.util.Arrays;
 import java.util.List;

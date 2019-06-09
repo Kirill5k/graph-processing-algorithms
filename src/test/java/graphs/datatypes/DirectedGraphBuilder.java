@@ -1,7 +1,8 @@
 package graphs.datatypes;
 
-import graphs.datatypes.simple.DirectedGraph;
-import graphs.datatypes.simple.SimpleEdge;
+import graphs.datatypes.graphs.Graph;
+import graphs.datatypes.graphs.simple.DirectedGraph;
+import graphs.datatypes.graphs.simple.SimpleEdge;
 
 public class DirectedGraphBuilder {
     private DirectedGraphBuilder() {}

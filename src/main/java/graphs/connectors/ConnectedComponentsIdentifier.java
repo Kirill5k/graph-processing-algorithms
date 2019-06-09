@@ -1,6 +1,6 @@
 package graphs.connectors;
 
-import graphs.datatypes.simple.DirectedGraph;
+import graphs.datatypes.graphs.simple.DirectedGraph;
 
 public abstract class ConnectedComponentsIdentifier {
     protected final DirectedGraph graph;

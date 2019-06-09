@@ -1,8 +1,8 @@
 package graphs.trees;
 
 import graphs.datatypes.EdgeWeightedGraphBuilder;
-import graphs.datatypes.weighted.EdgeWeightedGraph;
-import graphs.datatypes.weighted.WeightedEdge;
+import graphs.datatypes.graphs.weight.EdgeWeightedGraph;
+import graphs.datatypes.graphs.weight.WeightedEdge;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

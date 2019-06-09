@@ -1,6 +1,6 @@
 package graphs.processor;
 
-import graphs.datatypes.Graph;
+import graphs.datatypes.graphs.Graph;
 
 import java.util.LinkedList;
 

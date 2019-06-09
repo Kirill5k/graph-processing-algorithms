@@ -1,7 +1,7 @@
 package graphs.datatypes;
 
-import graphs.datatypes.weighted.DirectedEdgeWeightedGraph;
-import graphs.datatypes.weighted.WeightedEdge;
+import graphs.datatypes.graphs.weight.DirectedEdgeWeightedGraph;
+import graphs.datatypes.graphs.weight.WeightedEdge;
 
 public class DirectedEdgeWeightedGraphBuilder {
     private DirectedEdgeWeightedGraphBuilder() {}

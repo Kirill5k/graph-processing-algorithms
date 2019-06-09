@@ -1,6 +1,6 @@
-package graphs.datatypes.simple;
+package graphs.datatypes.graphs.simple;
 
-import graphs.datatypes.SymbolGraph;
+import graphs.datatypes.graphs.SymbolGraph;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

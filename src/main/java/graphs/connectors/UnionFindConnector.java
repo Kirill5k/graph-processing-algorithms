@@ -1,6 +1,6 @@
 package graphs.connectors;
 
-import graphs.datatypes.Graph;
+import graphs.datatypes.graphs.Graph;
 
 public class UnionFindConnector extends Connector {
     private int[] ids;

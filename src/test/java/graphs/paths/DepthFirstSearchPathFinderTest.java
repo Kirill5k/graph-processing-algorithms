@@ -1,6 +1,6 @@
 package graphs.paths;
 
-import graphs.datatypes.Graph;
+import graphs.datatypes.graphs.Graph;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,6 +1,7 @@
-package graphs.datatypes.weighted;
+package graphs.datatypes.graphs.weight;
 
-import graphs.datatypes.Edge;
+
+import graphs.datatypes.graphs.Edge;
 
 public class WeightedEdge extends Edge implements Comparable<WeightedEdge> {
     private final double weight;

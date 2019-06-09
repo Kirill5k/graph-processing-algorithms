@@ -1,7 +1,7 @@
 package graphs.trees;
 
-import graphs.datatypes.weighted.EdgeWeightedGraph;
-import graphs.datatypes.weighted.WeightedEdge;
+import graphs.datatypes.graphs.weight.EdgeWeightedGraph;
+import graphs.datatypes.graphs.weight.WeightedEdge;
 
 import java.util.Collection;
 import java.util.LinkedList;

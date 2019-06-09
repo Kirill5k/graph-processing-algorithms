@@ -1,7 +1,8 @@
 package graphs.datatypes;
 
-import graphs.datatypes.simple.SimpleEdge;
-import graphs.datatypes.simple.UndirectedGraph;
+import graphs.datatypes.graphs.Graph;
+import graphs.datatypes.graphs.simple.SimpleEdge;
+import graphs.datatypes.graphs.simple.UndirectedGraph;
 
 public class UndirectedGraphBuilder {
     private UndirectedGraphBuilder() {}

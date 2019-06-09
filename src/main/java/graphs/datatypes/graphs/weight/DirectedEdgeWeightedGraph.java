@@ -1,6 +1,6 @@
-package graphs.datatypes.weighted;
+package graphs.datatypes.graphs.weight;
 
-import graphs.datatypes.Graph;
+import graphs.datatypes.graphs.Graph;
 
 import java.util.*;
 

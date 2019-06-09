@@ -1,7 +1,7 @@
-package graphs.datatypes.simple;
+package graphs.datatypes.graphs.simple;
 
-import graphs.datatypes.Edge;
-import graphs.datatypes.Graph;
+import graphs.datatypes.graphs.Edge;
+import graphs.datatypes.graphs.Graph;
 
 import java.util.ArrayList;
 import java.util.Collection;

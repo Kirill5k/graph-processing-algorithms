@@ -1,7 +1,7 @@
 package graphs.processor;
 
-import graphs.datatypes.Edge;
-import graphs.datatypes.Graph;
+import graphs.datatypes.graphs.Edge;
+import graphs.datatypes.graphs.Graph;
 
 public class DepthFirstSearchProcessor extends GraphProcessor {
     private boolean[] marked;

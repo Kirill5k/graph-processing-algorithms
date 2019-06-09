@@ -1,19 +1,19 @@
-package graphs.datatypes.simple;
+package graphs.datatypes.graphs.simple;
 
-
-import graphs.datatypes.Graph;
+import graphs.datatypes.graphs.Graph;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class UndirectedGraphTest {
+class DirectedGraphTest {
     private Graph graph;
 
     @BeforeEach
     void setUp() {
-        graph = new UndirectedGraph(20);
+        graph = new DirectedGraph(20);
     }
 
     @Test
@@ -30,40 +30,21 @@ class UndirectedGraphTest {
     public void addEdgeSelfLoopAndParallel() {
         graph.add(new SimpleEdge(0, 5));
 
-        assertThrows(IllegalArgumentException.class, () -> graph.add(new SimpleEdge(5, 0)));
+        assertDoesNotThrow(() -> graph.add(new SimpleEdge(5, 0)));
         assertThrows(IllegalArgumentException.class, () -> graph.add(new SimpleEdge(0, 0)));
+        assertThrows(IllegalArgumentException.class, () -> graph.add(new SimpleEdge(0, 5)));
     }
 
     @Test
     public void adjacentTo() {
         graph.add(new SimpleEdge(0, 5));
+        graph.add(new SimpleEdge(0, 4));
         graph.add(new SimpleEdge(1, 5));
         graph.add(new SimpleEdge(2, 5));
         graph.add(new SimpleEdge(3, 5));
 
-        assertThat(graph.adjacentTo(5)).containsExactlyInAnyOrder(0, 1, 2, 3);
-        assertThat(graph.adjacentTo(0)).containsExactly(5);
-    }
-
-    @Test
-    public void adjacentEdges() {
-        graph.add(new SimpleEdge(0, 5));
-        graph.add(new SimpleEdge(1, 5));
-        graph.add(new SimpleEdge(2, 5));
-        graph.add(new SimpleEdge(3, 5));
-
-        assertThat(graph.adjacentEdges(5)).containsExactlyInAnyOrder(new SimpleEdge(0, 5), new SimpleEdge(1, 5), new SimpleEdge(2, 5), new SimpleEdge(3, 5));
-        assertThat(graph.adjacentEdges(0)).containsExactly(new SimpleEdge(0, 5));
-    }
-
-    @Test
-    public void allEdges() {
-        graph.add(new SimpleEdge(0, 5));
-        graph.add(new SimpleEdge(1, 5));
-        graph.add(new SimpleEdge(2, 5));
-        graph.add(new SimpleEdge(3, 5));
-
-        assertThat(graph.allEdges()).containsExactlyInAnyOrder(new SimpleEdge(0, 5), new SimpleEdge(1, 5), new SimpleEdge(2, 5), new SimpleEdge(3, 5));
+        assertThat(graph.adjacentTo(5)).isEmpty();
+        assertThat(graph.adjacentTo(0)).containsExactlyInAnyOrder(5, 4);
     }
 
     @Test
@@ -73,9 +54,9 @@ class UndirectedGraphTest {
         graph.add(new SimpleEdge(2, 5));
         graph.add(new SimpleEdge(3, 5));
 
-        assertThat(graph.degree(5)).isEqualTo(4);
+        assertThat(graph.degree(5)).isEqualTo(0);
         assertThat(graph.degree(0)).isEqualTo(1);
-        assertThat(graph.maxDegree()).isEqualTo(4);
+        assertThat(graph.maxDegree()).isEqualTo(1);
     }
 
     @Test
@@ -109,7 +90,7 @@ class UndirectedGraphTest {
         graph.add(new SimpleEdge(0, 5));
 
         assertThat(graph.has(new SimpleEdge(0, 5))).isTrue();
-        assertThat(graph.has(new SimpleEdge(5, 0))).isTrue();
+        assertThat(graph.has(new SimpleEdge(5, 0))).isFalse();
         assertThat(graph.has(new SimpleEdge(0, 1))).isFalse();
     }
 }

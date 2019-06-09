@@ -1,6 +1,8 @@
-package graphs.datatypes.weighted;
+package graphs.datatypes.graphs.weighted;
 
-import graphs.datatypes.Graph;
+import graphs.datatypes.graphs.Graph;
+import graphs.datatypes.graphs.weight.EdgeWeightedGraph;
+import graphs.datatypes.graphs.weight.WeightedEdge;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

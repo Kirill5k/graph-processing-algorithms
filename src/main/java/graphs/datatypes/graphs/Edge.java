@@ -1,4 +1,4 @@
-package graphs.datatypes;
+package graphs.datatypes.graphs;
 
 import java.util.Objects;
 

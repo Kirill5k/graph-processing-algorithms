@@ -1,7 +1,7 @@
 package graphs.connectors;
 
-import graphs.datatypes.Edge;
-import graphs.datatypes.Graph;
+import graphs.datatypes.graphs.Edge;
+import graphs.datatypes.graphs.Graph;
 
 public class DepthFirstSearchConnector extends Connector {
     private final boolean[] marked;
