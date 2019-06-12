@@ -7,9 +7,9 @@ import java.util.*;
 import static java.util.stream.Collectors.toList;
 
 public class EdgeWeightedGraph implements Graph<WeightedEdge> {
-    private final int vertices;
-    private final List<WeightedEdge> edges;
-    private final Set<Integer>[] adjacencySets;
+    protected final int vertices;
+    protected final List<WeightedEdge> edges;
+    protected final Set<Integer>[] adjacencySets;
 
     public EdgeWeightedGraph(int vertices) {
         this.vertices = vertices;

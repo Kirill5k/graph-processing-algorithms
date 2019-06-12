@@ -1,6 +1,6 @@
 package graphs.paths;
 
-import graphs.datatypes.graphs.weight.DirectedEdgeWeightedGraph;
+import graphs.datatypes.graphs.weight.EdgeWeightedGraph;
 import graphs.datatypes.graphs.weight.WeightedEdge;
 
 import java.util.ArrayList;
@@ -11,25 +11,17 @@ import java.util.List;
 public abstract class ShortestPathFinder {
     protected static final double INITIAL_DISTANCE = 0;
 
-    protected final DirectedEdgeWeightedGraph graph;
+    protected final EdgeWeightedGraph graph;
     protected final int source;
     protected final WeightedEdge[] edgeTo;
     protected final double[] distanceTo;
 
-    protected ShortestPathFinder(DirectedEdgeWeightedGraph graph, int source) {
+    protected ShortestPathFinder(EdgeWeightedGraph graph, int source) {
         this.graph = graph;
         this.source = source;
         edgeTo = new WeightedEdge[graph.vertices()];
         distanceTo = new double[graph.vertices()];
         Arrays.fill(distanceTo, Double.POSITIVE_INFINITY);
-    }
-
-    protected void relaxEdge(WeightedEdge edge) {
-        double alternativeDistance = distanceTo[edge.from()] + edge.weight();
-        if (distanceTo[edge.to()] > alternativeDistance) {
-            edgeTo[edge.to()] = edge;
-            distanceTo[edge.to()] = alternativeDistance;
-        }
     }
 
     public boolean hasPathTo(int vertex) {
