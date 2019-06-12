@@ -20,6 +20,6 @@ class DepthFirstOrderFinderTest {
 
     @Test
     void order() {
-        assertThat(orderFinder.order()).containsExactly(1, 3, 2, 4, 5, 0, 12, 10, 11, 9, 6, 8, 7);
+        assertThat(orderFinder.order()).containsExactly(7, 8, 6, 9, 11, 10, 12, 0, 5, 4, 2, 3, 1);
     }
 }

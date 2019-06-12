@@ -5,10 +5,10 @@ import graphs.datatypes.graphs.Graph;
 
 import java.util.Collection;
 
-public abstract class OrderFinder {
-    protected final Graph<Edge> graph;
+public abstract class OrderFinder<T extends Edge> {
+    protected final Graph<T> graph;
 
-    protected OrderFinder(Graph<Edge> graph) {
+    protected OrderFinder(Graph<T> graph) {
         this.graph = graph;
     }
 

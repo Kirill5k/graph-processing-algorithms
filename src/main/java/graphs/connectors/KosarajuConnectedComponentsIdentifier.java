@@ -1,5 +1,6 @@
 package graphs.connectors;
 
+import graphs.datatypes.graphs.Edge;
 import graphs.datatypes.graphs.simple.DirectedGraph;
 import graphs.topologies.DepthFirstOrderFinder;
 
@@ -12,7 +13,7 @@ public class KosarajuConnectedComponentsIdentifier extends ConnectedComponentsId
         super(graph);
         marked = new boolean[graph.vertices()];
         id = new int[graph.vertices()];
-        DepthFirstOrderFinder orderFinder = new DepthFirstOrderFinder(graph);
+        DepthFirstOrderFinder<Edge> orderFinder = new DepthFirstOrderFinder<>(graph);
         for (int vertex : orderFinder.order()) {
             if (!marked[vertex]) {
                 depthFirstSearch(vertex);
